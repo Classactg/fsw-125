@@ -1,3 +1,4 @@
+const express = require('express')
 const bountyRouter = express.Router()
 const { v4 } = require("uuid")
 const bounties = [{
@@ -85,7 +86,7 @@ bountyRouter.get("/:bountyId", (req, res) => {
 // Get by Bounty Object
 bountyRouter.get("/search/living", (req, res) => {
     const living = req.query.living
-    const filteredbountyies = bounties.filter(bounty => bounty.living === living)
+    const filteredbounties = bounties.filter(bounty => bounty.living === living)
 })
 // Post One
 bountyRouter.post("/", (req, res) => {
@@ -97,7 +98,7 @@ bountyRouter.post("/", (req, res) => {
 // Update One
 bountyRouter.put("/:bountyId", (req, res) => {
     const bountyId = req.params.bountyId
-    const bountyInex = bounties.findIndex(bounty => bounty._id === bountyId)
+    const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
     res.send(updateBounty)
 })
 // Delete One
