@@ -37,38 +37,38 @@ const todos = [{
     _id: v4()
 },
 {
-    description: "Marka Ragnos",
+    description: "Go Out",
     completed: "false",
     todoAmount: "500",
-    type: "Sith",
+    type: "Dance",
     _id: v4()
 },
 {
-    description: "Darth Nihilus",
-    completed: "false",
+    description: "Brush Teeth",
+    completed: "true",
     todoAmount: "300",
-    type: "Sith",
+    type: "Charge Brush",
     _id: v4()
 },
 {
-    description: "Darth Bane",
-    completed: "false",
+    description: "Drive",
+    completed: "true",
     todoAmount: "1500",
-    type: "Sith",
+    type: "Get Gas",
     _id: v4()
 },
 {
-    description: "Darth Sidious",
+    description: "Buy Food",
     completed: "false",
     todoAmount: "3500",
-    type: "Sith",
+    type: "Grocery Shop",
     _id: v4()
 },
 {
-    description: "Darth Traya",
+    description: "Study",
     completed: "false",
     todoAmount: "750",
-    type: "Sith",
+    type: "Prepare",
     _id: v4()
 }
 ]
