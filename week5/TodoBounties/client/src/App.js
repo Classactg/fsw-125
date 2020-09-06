@@ -32,33 +32,52 @@ axios.post("/bounties", newBounty)
   render(){  return (
     <div className="App">
       <header className="App-header">
-   <div><input 
-          name="title"
-          onChange={this.handleChange}
-          value = {this.state.title}/>
-          <input 
-          name="living"
-          onChange={this.handleChange}
-          value = {this.state.living}/><input 
-          name="bountyAmount"
-          onChange={this.handleChange}
-          value = {this.state.bountyAmount}/><input 
-          name="type"
-          onChange={this.handleChange}
-          value = {this.state.type}/>
-          <button onClick={this.handleSubmit}>Submit</button></div>
-        {this.state.array.map((bounty, index)=>{
+   <div><input
+          type = "text" 
+          name = "title"
+          value = {this.state.title}
+          onChange = {this.handleChange}
+          placeholder = "Title"/>
+          
+          <input
+          type = "text" 
+          name = "living"
+          value = {this.state.living}
+          onChange = {this.handleChange}
+          placeholder = "Living"/>
+          
+          <input
+          type = "text"
+          name = "bountyAmount"
+          value = {this.state.bountyAmount}
+          onChange = {this.handleChange}
+          placeholder = "Bounty amount"/>
+          
+          <input
+          text = "text"
+          name = "type"
+          value = {this.state.type}
+          onChange = {this.handleChange}
+          placeholder = "Jedi/Sith"/>
+          
+          <button onClick = {this.handleSubmit}>Submit</button></div>
+        {this.state.array.map((bounty, index) => {
           return(
             <div className="bounty"
-                 key={index}
-                 id={index}
-            >
-              {bounty.title}
+                 key = {index}
+                 id = {index}
+            > 
+              <h1>Title: { bounty.title }</h1>
+              <h2>Living: { bounty.living }</h2>
+              <h3>Bounty Amount: { bounty.bountyAmount }</h3>
+              <h3>Type: { bounty.type }</h3>
             </div>
           )
         })}
         <p>
+          <h1>
         We are here to take over the world!
+          </h1>
         </p>
       </header>
     </div>
