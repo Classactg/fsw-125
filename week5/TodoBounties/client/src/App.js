@@ -1,25 +1,52 @@
 import axios from 'axios';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+
 
 class App extends React.Component {
   constructor (){
     super()
     this.state={
-      array:[], 
+      array:[], title:"", living:"", bountyAmount:"", type:"" 
     }
   }
+ handleChange=(event)=>{
+   const {name, value} = event.target
+   console.log(name, value)
+   console.log({[name]:value})
+   this.setState({[name]:value})
+ }
   componentDidMount(){
     axios.get("/bounties")
     .then(response => {console.log(response.data)
         this.setState({array: response.data})})
     .catch(error => console.log(error))
   }
+  handleSubmit=(event)=>{const newBounty={title: this.state.title, living: this.state.living,bountyAmount: this.state.bountyAmount, type: this.state.type,}
+
+console.log(newBounty)
+axios.post("/bounties", newBounty)
+.then(response => {console.log(response.data)
+    this.setState({array: [...this.state.array,response.data]})})
+.catch(error => console.log(error))}
   render(){  return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+   <div><input 
+          name="title"
+          onChange={this.handleChange}
+          value = {this.state.title}/>
+          <input 
+          name="living"
+          onChange={this.handleChange}
+          value = {this.state.living}/><input 
+          name="bountyAmount"
+          onChange={this.handleChange}
+          value = {this.state.bountyAmount}/><input 
+          name="type"
+          onChange={this.handleChange}
+          value = {this.state.type}/>
+          <button onClick={this.handleSubmit}>Submit</button></div>
         {this.state.array.map((bounty, index)=>{
           return(
             <div className="bounty"
@@ -33,14 +60,6 @@ class App extends React.Component {
         <p>
         We are here to take over the world!
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   )}

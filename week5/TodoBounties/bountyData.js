@@ -9,7 +9,6 @@ const bounties = [{
 {
     title: "Eeth Koth",
     living: "true",
-
     bountyAmount: "5000",
     type: "Jedi",
     _id: v4()
